@@ -12,7 +12,7 @@ export default function NavBar() {
         </p>
       </div>
       <ul className="max-w-max w-full flex gap-[20px]">
-        {["Home", "About", "Projects", "Work Experience", "Contact"].map(
+        {["Home", "About", "Work Experience", "Projects", "Contact"].map(
           (item, index) => (
             <li key={index} className="w-max flex flex-col cursor-pointer">
               <p className="text-gray-300 font-semibold text-right text-[1.2rem]">
