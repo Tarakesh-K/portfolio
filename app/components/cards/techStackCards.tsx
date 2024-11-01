@@ -3,7 +3,7 @@ import React from "react";
 
 export default function TechStackCards(props: TechStackCardsPropsType) {
   return (
-    <div className="w-full basis-1/2 bg-[#1D1836] flex flex-col gap-[10px] p-[16px] rounded-[8px]">
+    <div className="w-full md:basis-1/2 bg-[#1D1836] flex flex-col gap-[10px] p-[16px] rounded-[8px]">
       <p className="font-robotmono text-white text-[2.4rem] leading-[1.5]">
         {props.title}
       </p>

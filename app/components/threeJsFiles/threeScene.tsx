@@ -28,6 +28,7 @@ const ThreeScene = () => {
   return (
     <Canvas className="max-w-[100px] h-[100px]">
       {/* Add height class */}
+      <object3D />
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
       <RotatingCube />

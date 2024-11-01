@@ -4,7 +4,7 @@ export type ImgType = {
   bgColor?: string;
 }[];
 
-export type ThreeDimObjectType = {
+export type Type = {
   description: string;
   object: string;
   bgColor?: string;
@@ -14,7 +14,7 @@ export type TitleCardProps = {
   title: string;
 };
 
-export type SkillsThreeDimType = {
+export type UrlType = {
   url: string;
 };
 

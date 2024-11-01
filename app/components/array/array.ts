@@ -1,6 +1,6 @@
 import {
   ImgType,
-  ThreeDimObjectType,
+  TechStackCardsPropsType,
 } from "@/app/types/types";
 
 export const imgDetailsArr: ImgType = [
@@ -115,116 +115,94 @@ export const imgDetailsArr: ImgType = [
   },
 ];
 
-export const threeDimObject: ThreeDimObjectType = [
+export const image3dType: ImgType = [
   {
     description: "HTML5",
-    object: "/3dObjectsForSkills/html.gltf",
+    img: "/tech/html.png",
   },
-  // {
-  //   description: "CSS3",
-  //   object: "/3dObjectsForSkills/css.svg",
-  // },
-  // {
-  //   description: "Javascript",
-  //   object: "/3dObjectsForSkills/js.svg",
-  // },
-  // {
-  //   description: "React",
-  //   object: "/3dObjectsForSkills/react.svg",
-  // },
-  // {
-  //   description: "Redux",
-  //   object: "/3dObjectsForSkills/redux.svg",
-  // },
-  // {
-  //   description: "Gatsby",
-  //   object: "/3dObjectsForSkills/gatsby.svg",
-  // },
-  // {
-  //   description: "Next.js",
-  //   object: "/3dObjectsForSkills/nextjs.svg",
-  //   bgColor: "bg-white",
-  // },
-  // {
-  //   description: "Tailwind CSS",
-  //   object: "/3dObjectsForSkills/tailwind-css.svg",
-  // },
-  // {
-  //   description: "Three.js",
-  //   object: "/3dObjectsForSkills/threejs.svg",
-  //   bgColor: "bg-white",
-  // },
-  // {
-  //   description: "Material UI",
-  //   object: "/3dObjectsForSkills/material-ui.svg",
-  // },
-  // {
-  //   description: "Node.js",
-  //   object: "/3dObjectsForSkills/node-js.svg",
-  // },
-  // {
-  //   description: "Express.js",
-  //   object: "/3dObjectsForSkills/express.svg",
-  //   bgColor: "bg-white",
-  // },
-  // {
-  //   description: "MongoDB",
-  //   object: "/3dObjectsForSkills/mongodb.svg",
-  // },
-  // {
-  //   description: "Mongoose",
-  //   object: "/3dObjectsForSkills/mongoose.svg",
-  //   bgColor: "bg-white",
-  // },
-  // {
-  //   description: "Mongo Compass",
-  //   object: "/3dObjectsForSkills/mongo-compass.svg",
-  //   bgColor: "bg-white",
-  // },
-  // {
-  //   description: "postgreSQL",
-  //   object: "/3dObjectsForSkills/postgreSQL.svg",
-  // },
-  // {
-  //   description: "Socket.IO",
-  //   object: "/3dObjectsForSkills/socket.io.svg",
-  //   bgColor: "bg-white",
-  // },
-  // {
-  //   description: "GraphQL",
-  //   object: "/3dObjectsForSkills/graphql.svg",
-  // },
-  // {
-  //   description: "Typescript",
-  //   object: "/3dObjectsForSkills/typescript.svg",
-  // },
-  // {
-  //   description: "Rest API",
-  //   object: "/3dObjectsForSkills/rest-api.svg",
-  //   bgColor: "bg-white",
-  // },
-  // {
-  //   description: "Python",
-  //   object: "/3dObjectsForSkills/python.svg",
-  // },
-  // {
-  //   description: "Selenium",
-  //   object: "/3dObjectsForSkills/selenium.svg",
-  // },
-  // {
-  //   description: "Keycloak",
-  //   object: "/3dObjectsForSkills/keycloak.svg",
-  // },
-  // {
-  //   description: "Git",
-  //   object: "/3dObjectsForSkills/git.svg",
-  // },
-  // {
-  //   description: "Docker",
-  //   object: "/3dObjectsForSkills/docker.svg",
-  // },
-  // {
-  //   description: "Postman",
-  //   object: "/3dObjectsForSkills/postman.svg",
-  // },
+  {
+    description: "CSS3",
+    img: "/tech/css.png",
+  },
+  {
+    description: "Javascript",
+    img: "/tech/javascript.png",
+  },
+  {
+    description: "React",
+    img: "/tech/reactjs.png",
+  },
+  {
+    description: "Redux",
+    img: "/tech/redux.png",
+  },
+  {
+    description: "Tailwind CSS",
+    img: "/tech/tailwind.png",
+  },
+  {
+    description: "Node.js",
+    img: "/tech/nodejs.png",
+  },
+  {
+    description: "MongoDB",
+    img: "/tech/mongodb.png",
+  },
+  {
+    description: "Typescript",
+    img: "/tech/typescript.png",
+  },
+  {
+    description: "Docker",
+    img: "/tech/docker.png",
+  },
 ];
+
+export const frontEndStackProps: TechStackCardsPropsType = {
+  title: "Frontend Development",
+  skills: "Next.js, React.js, Gatsby, Redux with Tailwind CSS",
+  list: [
+    "Developed dynamic and responsive web applications using Next.js and React.js",
+    "Implemented state management with Redux to optimize UI performance.",
+    "Styled components and layouts efficiently using Tailwind CSS",
+    "Collaborated with backend teams to integrate APIs and ensure seamless frontend-backend interactions.",
+    "Focused on frontend architecture, code modularity, and enhancing user experience.",
+  ],
+};
+
+export const backEndStackProps: TechStackCardsPropsType = {
+  title: "Backend Development",
+  skills:
+    "Node.js, Express.js, MongoDB, PostgreSQL, REST API Development, Authentication Middleware",
+  list: [
+    "Developed RESTful APIs with Node.js and Express.js for efficient frontend-backend communication.",
+    "Designed database schemas in MongoDB and PostgreSQL, ensuring data integrity and scalability.",
+    "Implemented authentication with JWT for enhanced application security.",
+    "Collaborated with frontend teams to ensure seamless API integration and data flow.",
+    "Focused on MVC architecture, modular code, and scalability.",
+  ],
+};
+
+export const dbStackProps: TechStackCardsPropsType = {
+  title: "Database Management",
+  skills: "MongoDB, PostgreSQL, MySQL, Redis, Firebase",
+  list: [
+    "Designed and managed databases using MongoDB and PostgreSQL for data integrity and performance.",
+    "Implemented data models and relationships to support application requirements.",
+    "Utilized Redis for caching to enhance data retrieval speeds.",
+    "Managed real-time databases with Firebase for efficient data syncing.",
+    "Conducted performance tuning and optimization for database queries.",
+  ],
+};
+
+export const authStackProps: TechStackCardsPropsType = {
+  title: "Authentication & Security",
+  skills: "JWT, OAuth, Passport.js, bcrypt, Keycloak",
+  list: [
+    "Implemented secure user authentication using JWT and OAuth protocols.",
+    "Utilized Passport.js for flexible authentication strategies.",
+    "Employed bcrypt for password hashing and encryption to enhance security.",
+    "Configured Helmet to secure Express apps by setting various HTTP headers.",
+    "Conducted security audits and vulnerability assessments to maintain application integrity.",
+  ],
+};

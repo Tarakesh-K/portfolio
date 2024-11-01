@@ -1,33 +1,15 @@
 import React from "react";
+import Image from "next/image";
 import TitleCard from "./title/titleCard";
 import TechStackCards from "./cards/techStackCards";
-import { TechStackCardsPropsType } from "../types/types";
+import {
+  authStackProps,
+  backEndStackProps,
+  dbStackProps,
+  frontEndStackProps,
+} from "./array/array";
 
 export default function WorkExperience() {
-  const frontEndStackProps: TechStackCardsPropsType = {
-    title: "Frontend Development",
-    skills: "Next.js, React.js, Redux with Tailwind CSS",
-    list: [
-      "Developed dynamic and responsive web applications using Next.js and React.js",
-      "Implemented state management with Redux to optimize UI performance.",
-      "Styled components and layouts efficiently using Tailwind CSS",
-      "Collaborated with backend teams to integrate APIs and ensure seamless frontend-backend interactions.",
-      "Focused on frontend architecture, code modularity, and enhancing user experience.",
-    ],
-  };
-
-  const backEndStackProps: TechStackCardsPropsType = {
-    title: "Backend Development",
-    skills: "Node.js, Express.js, Redux with Tailwind CSS",
-    list: [
-      "Developed dynamic and responsive web applications using Next.js and React.js",
-      "Implemented state management with Redux to optimize UI performance.",
-      "Styled components and layouts efficiently using Tailwind CSS",
-      "Collaborated with backend teams to integrate APIs and ensure seamless frontend-backend interactions.",
-      "Focused on frontend architecture, code modularity, and enhancing user experience.",
-    ],
-  };
-
   return (
     <div className="max-w-[1440px] w-full mx-auto p-10">
       <div className="max-w-[1110px] relative w-full mx-auto">
@@ -35,18 +17,58 @@ export default function WorkExperience() {
           <TitleCard title="Work Experience" />
         </div>
 
-        <div className="absolute top-[8rem] bottom-0 border-[1px] border-white left-1/2 transform -translate-x-1/2 mx-auto" />
+        <div className="absolute top-[8rem] bottom-0 border-[1px] border-white left-0 md:left-1/2 md:transform md:-translate-x-1/2 mx-auto" />
 
         {/* First Row */}
-        <div className="w-full flex gap-[20px] items-stretch">
+        <div className="w-full flex gap-[40px] items-stretch ml-[20px] md:ml-0">
+          <Image
+            src={"/skillsImg/react.svg"}
+            alt={""}
+            width={30}
+            height={40}
+            className="absolute top-[100px] -left-6 md:left-1/2 md:transform md:-translate-x-1/2 z-0 bg-white rounded-full"
+          />
           <TechStackCards {...frontEndStackProps} />
-          <div className="basis-1/2" />
+          <div className="md:basis-1/2" />
         </div>
 
         {/* Second Row */}
-        <div className="w-full flex gap-[20px] flex-row-reverse items-stretch">
+        <div className="w-full mt-[10px] flex gap-[40px] md:flex-row-reverse items-stretch ml-[20px] md:ml-0">
+          <Image
+            src={"/skillsImg/node-js.svg"}
+            alt={""}
+            width={30}
+            height={40}
+            className="absolute top-[30%] -left-6 md:left-1/2 md:transform md:-translate-x-1/2 z-0 bg-white rounded-full"
+          />
           <TechStackCards {...backEndStackProps} />
-          <div className="basis-1/2" />
+          <div className="md:basis-1/2" />
+        </div>
+
+        {/* Third Row */}
+        <div className="w-full mt-[10px] flex gap-[40px] items-stretch ml-[20px] md:ml-0">
+          <Image
+            src={"/skillsImg/mongodb.svg"}
+            alt={""}
+            width={30}
+            height={40}
+            className="absolute top-[56.4%] -left-6 md:left-1/2 md:transform md:-translate-x-1/2 z-0 bg-white rounded-full"
+          />
+          <TechStackCards {...dbStackProps} />
+          <div className="md:basis-1/2" />
+        </div>
+
+        {/* Fourth Row */}
+        <div className="w-full mt-[10px] flex gap-[40px] md:flex-row-reverse items-stretch ml-[20px] md:ml-0">
+          <Image
+            src={"/skillsImg/keycloak.svg"}
+            alt={""}
+            width={30}
+            height={40}
+            className="absolute top-[79%] -left-6 md:left-1/2 md:transform md:-translate-x-1/2 z-0 bg-white rounded-full"
+          />
+          <TechStackCards {...authStackProps} />
+          <div className="md:basis-1/2" />
         </div>
       </div>
     </div>
