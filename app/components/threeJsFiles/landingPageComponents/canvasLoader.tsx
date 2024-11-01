@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Html, useProgress } from "@react-three/drei";
+import { ProgressAnimationPropsType } from "@/app/types/types";
 
-const CanvasLoader = () => {
+const CanvasLoader = (props: ProgressAnimationPropsType) => {
   const { progress } = useProgress();
+
+  useEffect(() => {
+    props.setProgress(progress);
+  }, [progress]);
 
   return (
     <Html>

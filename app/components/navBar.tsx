@@ -1,11 +1,12 @@
-"use client"
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { ProgressAnimationPropsType } from "../types/types";
 
-export default function NavBar() {
+export default function NavBar(props: ProgressAnimationPropsType) {
   const menuItems = ["Home", "About", "Work Experience", "Projects", "Contact"];
 
-  return (
+  return props.progress >= 95 ? (
     <div className="w-full bg-black flex justify-between mb-10 px-10 py-6 fixed z-10 border-b-[2px] border-white">
       <div className="w-max">
         <p className="text-[3.2rem] leading-[1.5] font-robotmono font-semibold">
@@ -34,5 +35,5 @@ export default function NavBar() {
         ))}
       </ul>
     </div>
-  );
+  ) : null;
 }

@@ -1,26 +1,49 @@
 "use client";
-import React from "react";
-import Image from "next/image"; // Import the Image component from Next.js
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import ThreeScene from "./threeJsFiles/threeScene";
 import ComputerCanvas from "./threeJsFiles/landingPageComponents/computerCanvas";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ProgressAnimationPropsType } from "../types/types";
 
-export default function LandingPage() {
+export default function LandingPage(props: ProgressAnimationPropsType) {
+  const [isVisible, setIsVisible] = useState(false);
+  const textRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 } // Adjusted for more sensitivity
+    );
+
+    if (textRef.current) {
+      observer.observe(textRef.current);
+    }
+
+    return () => {
+      if (textRef.current) {
+        observer.unobserve(textRef.current);
+      }
+    };
+  }, []);
+
+  console.log(props.progress);
+
   return (
     <div className="relative w-full min-h-[90vh] lg:min-h-screen">
       {/* Background image */}
       <Image
-        src="/bg_images/waves-purple.svg" // Path to your image
+        src="/bg_images/waves-purple.svg"
         alt="Background"
-        layout="fill" // This makes the image fill the parent container
-        objectFit="cover" // This ensures the image covers the entire area
-        className="absolute top-0 left-0 z-0 opacity-[10%]" // Positioning the image
+        layout="fill"
+        objectFit="cover"
+        className="absolute top-0 left-0 z-0 opacity-[10%]"
       />
       <div className="max-w-[1440px] w-full mx-auto p-10 flex flex-col">
-        {/* Ensure this has a higher z-index */}
         {/* Centered Tarakesh K section */}
         <div className="w-full mt-[60px] flex justify-center items-center text-white text-[6rem] leading-[1.5] font-robotmono font-semibold">
+          {/* 3D components positioned around the text */}
           <div className="absolute top-[10%] left-0">
             <ThreeScene />
           </div>
@@ -34,24 +57,42 @@ export default function LandingPage() {
             <ThreeScene />
           </div>
           <div className="max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px] 2xl:max-w-[1440px] w-full mx-auto">
-            <div className="w-full relative flex gap-[20px]">
-              <div className="absolute left-[-20px] top-[10px] max-w-[5px] h-[300px] w-full bg-gradient-to-b from-[#A855F7] to-black" />
+            <motion.div
+              ref={textRef}
+              initial={{ y: -50, opacity: 0 }}
+              animate={isVisible ? { y: 0, opacity: 1 } : {}}
+              transition={{
+                duration: 2,
+                ease: [0.42, 0, 0.58, 1],
+              }}
+              className="w-full relative flex gap-[20px]"
+            >
+              <motion.div
+                initial={{ x: -50, opacity: 0 }}
+                animate={isVisible ? { x: 0, opacity: 1 } : {}}
+                transition={{
+                  duration: 2,
+                  ease: [0.42, 0, 0.58, 1],
+                }}
+                className="absolute left-[-20px] top-[10px] max-w-[5px] h-[300px] w-full bg-gradient-to-b from-[#A855F7] to-black"
+              />
               <div>
                 <p>
                   Hi I&apos;m <span className="text-[#A855F7]">Tarakesh K</span>
                 </p>
                 <p className="max-w-[400px] w-full text-[1.6rem] leading-[1.33]">
-                  Iam a full stack developer with 2 years experience who can
-                  develop 3d websites, user interfaces and web applications
+                  I am a full stack developer with 2 years experience who can
+                  develop 3D websites, user interfaces, and web applications.
                 </p>
               </div>
-            </div>
+            </motion.div>
             <div className="w-full h-[400px]">
-              <ComputerCanvas />
+              <ComputerCanvas {...props} />
             </div>
           </div>
         </div>
       </div>
+      {/* Scroll-down animation */}
       <div className="absolute bottom-[4%] w-full flex justify-center items-center">
         <Link href="#introduction">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-[#FFFFFF] flex justify-center items-start p-2">

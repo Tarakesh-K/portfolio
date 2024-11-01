@@ -1,4 +1,4 @@
-import { UrlType } from "@/app/types/types";
+import { ProgressAnimationPropsType, UrlType } from "@/app/types/types";
 import { Canvas } from "@react-three/fiber";
 import CanvasLoader from "./canvasLoader";
 import { Suspense } from "react";
@@ -35,10 +35,10 @@ const Ball = (props: UrlType) => {
   );
 };
 
-export default function BallCanvas(props: UrlType) {
+export default function BallCanvas(props: UrlType & ProgressAnimationPropsType) {
   return (
     <Canvas frameloop="demand" gl={{ preserveDrawingBuffer: true }}>
-      <Suspense fallback={<CanvasLoader />}>
+      <Suspense fallback={<CanvasLoader {...props} />}>
         <OrbitControls enableZoom={false} />
         <Ball url={props.url} />
       </Suspense>

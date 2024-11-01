@@ -1,7 +1,9 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import TitleCard from "./title/titleCard";
 import { imgDetailsArr } from "./array/array";
+import { motion } from "framer-motion";
 
 export default function Introduction() {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
@@ -40,12 +42,19 @@ export default function Introduction() {
   return (
     <div className="max-w-[1440px] w-full mx-auto p-10" ref={introRef}>
       <div className="w-full flex flex-col gap-[1rem]">
-        <div>
-          <h3 className="text-[4rem] leading-[1.5] text-[#A855F7] font-robotmono font-semibold">
-            Overview
-          </h3>
+        <div className="mb-4">
+          <TitleCard title="Overview" />
         </div>
-        <div className="max-w-[800px] w-full">
+
+        <motion.div
+          initial={{ x: -200, opacity: 0 }}
+          animate={isVisible ? { x: 0, opacity: 1 } : {}}
+          transition={{
+            duration: 2,
+            ease: [0.42, 0, 0.58, 1],
+          }}
+          className="max-w-[800px] w-full"
+        >
           <p className="text-[1.8rem] leading-[1.5] text-white">
             Detail-oriented full-stack developer with 1.8 years of experience in{" "}
             <b>React.js</b>, <b>Next.js</b>, <b>Node.js</b>, and{" "}
@@ -55,7 +64,7 @@ export default function Introduction() {
             application performance. Collaborative team player dedicated to
             delivering innovative solutions aligned with business objectives.
           </p>
-        </div>
+        </motion.div>
       </div>
       <div className="w-full mt-[40px] grid grid-cols-10 gap-[40px]">
         {imgDetailsArr.map((arr, index) => {

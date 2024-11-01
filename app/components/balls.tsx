@@ -1,9 +1,10 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import { image3dType } from "./array/array";
 import BallCanvas from "./threeJsFiles/landingPageComponents/ballCanvas";
+import { ProgressAnimationPropsType } from "../types/types";
 
-export default function Balls() {
+export default function Balls(props: ProgressAnimationPropsType) {
   const introRef = useRef<HTMLDivElement | null>(null); // Reference to the Introduction component
 
   return (
@@ -15,7 +16,7 @@ export default function Balls() {
               key={index}
               className={`col-span-1 flex flex-col transition-opacity duration-500 ease-in-out`}
             >
-              <BallCanvas url={arr.img} />
+              <BallCanvas url={arr.img} {...props} />
             </div>
           );
         })}

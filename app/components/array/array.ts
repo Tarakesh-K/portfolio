@@ -1,7 +1,5 @@
-import {
-  ImgType,
-  TechStackCardsPropsType,
-} from "@/app/types/types";
+"use client"
+import { ImgType, TechStackCardsPropsType } from "@/app/types/types";
 
 export const imgDetailsArr: ImgType = [
   {
@@ -168,6 +166,8 @@ export const frontEndStackProps: TechStackCardsPropsType = {
     "Collaborated with backend teams to integrate APIs and ensure seamless frontend-backend interactions.",
     "Focused on frontend architecture, code modularity, and enhancing user experience.",
   ],
+  xStart: -50,
+  xEnd: 0,
 };
 
 export const backEndStackProps: TechStackCardsPropsType = {
@@ -181,6 +181,9 @@ export const backEndStackProps: TechStackCardsPropsType = {
     "Collaborated with frontend teams to ensure seamless API integration and data flow.",
     "Focused on MVC architecture, modular code, and scalability.",
   ],
+  state: true,
+  xStart: 50,
+  xEnd: 0,
 };
 
 export const dbStackProps: TechStackCardsPropsType = {
@@ -193,6 +196,8 @@ export const dbStackProps: TechStackCardsPropsType = {
     "Managed real-time databases with Firebase for efficient data syncing.",
     "Conducted performance tuning and optimization for database queries.",
   ],
+  xStart: -50,
+  xEnd: 0,
 };
 
 export const authStackProps: TechStackCardsPropsType = {
@@ -205,4 +210,7 @@ export const authStackProps: TechStackCardsPropsType = {
     "Configured Helmet to secure Express apps by setting various HTTP headers.",
     "Conducted security audits and vulnerability assessments to maintain application integrity.",
   ],
+  state: true,
+  xStart: 50,
+  xEnd: 0,
 };

@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export type ImgType = {
   description: string;
   img: string;
@@ -9,6 +11,11 @@ export type Type = {
   object: string;
   bgColor?: string;
 }[];
+
+export type ProgressAnimationPropsType = {
+  progress: number;
+  setProgress: React.Dispatch<React.SetStateAction<number>>;
+};
 
 export type TitleCardProps = {
   title: string;
@@ -22,4 +29,19 @@ export type TechStackCardsPropsType = {
   title: string;
   skills: string;
   list: string[];
+  state?: boolean;
+  xStart: number;
+  xEnd: number;
+};
+
+export type ProjectCardPropsType = {
+  index: number;
+  name: string;
+  description: string;
+  tags: {
+    name: string;
+    color: string;
+  }[];
+  image: StaticImageData;
+  source_code_link: string;
 };

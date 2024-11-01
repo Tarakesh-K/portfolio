@@ -3,6 +3,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "./canvasLoader";
+import { ProgressAnimationPropsType } from "@/app/types/types";
 
 const Computers = ({ isMobile }: { isMobile: number }) => {
   const computer = useGLTF("./assets/desktop_pc/scene.gltf");
@@ -45,13 +46,12 @@ const Computers = ({ isMobile }: { isMobile: number }) => {
   );
 };
 
-const ComputerCanvas = () => {
+const ComputerCanvas = (props: ProgressAnimationPropsType) => {
   const [isMobile, setIsMobile] = useState<number>(0);
 
   useEffect(() => {
     setIsMobile(window.innerWidth);
   }, []);
-  console.log(isMobile);
 
   return (
     <Canvas
@@ -61,7 +61,7 @@ const ComputerCanvas = () => {
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
-      <Suspense fallback={<CanvasLoader />}>
+      <Suspense fallback={<CanvasLoader {...props} />}>
         <OrbitControls
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
@@ -74,4 +74,4 @@ const ComputerCanvas = () => {
   );
 };
 
-export default ComputerCanvas;
+export default React.memo(ComputerCanvas);
