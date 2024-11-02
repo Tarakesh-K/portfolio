@@ -30,6 +30,7 @@ function EarthCanvas(props: ProgressAnimationPropsType) {
         />
         <Earth />
       </Suspense>
+      <Preload all /> 
     </Canvas>
   );
 }

@@ -15,7 +15,7 @@ export default function WorkExperience() {
   const introRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <div className="max-w-[1440px] w-full mx-auto p-10">
+    <div id="work-experience" className="max-w-[1440px] w-full mx-auto p-8 scroll-mt-[100px]">
       <div className="max-w-[1110px] relative w-full mx-auto">
         <div className="mb-4">
           <TitleCard title="Work Experience" />
@@ -33,7 +33,7 @@ export default function WorkExperience() {
         />
 
         {/* First Row */}
-        <div className="w-full flex gap-[40px] items-stretch ml-[20px] md:ml-0">
+        <div className="w-full flex gap-[40px] ml-[20px] md:ml-0">
           <Image
             src={"/skillsImg/react.svg"}
             alt={""}
@@ -42,11 +42,11 @@ export default function WorkExperience() {
             className="absolute top-[100px] -left-6 md:left-1/2 md:transform md:-translate-x-1/2 z-0 bg-white rounded-full"
           />
           <TechStackCards {...frontEndStackProps} />
-          <div className="md:basis-1/2" />
+          <div className="lg:basis-1/2" />
         </div>
 
         {/* Second Row */}
-        <div className="w-full mt-[10px] flex gap-[40px] md:flex-row-reverse items-stretch ml-[20px] md:ml-0">
+        <div className="w-full mt-[10px] flex gap-[40px] md:flex-row-reverse ml-[20px] md:ml-0">
           <Image
             src={"/skillsImg/node-js.svg"}
             alt={""}
@@ -59,7 +59,7 @@ export default function WorkExperience() {
         </div>
 
         {/* Third Row */}
-        <div className="w-full mt-[10px] flex gap-[40px] items-stretch ml-[20px] md:ml-0">
+        <div className="w-full mt-[10px] flex gap-[40px] ml-[20px] md:ml-0">
           <Image
             src={"/skillsImg/mongodb.svg"}
             alt={""}
@@ -72,7 +72,7 @@ export default function WorkExperience() {
         </div>
 
         {/* Fourth Row */}
-        <div className="w-full mt-[10px] flex gap-[40px] md:flex-row-reverse items-stretch ml-[20px] md:ml-0">
+        <div className="w-full mt-[10px] flex gap-[40px] md:flex-row-reverse ml-[20px] md:ml-0">
           <Image
             src={"/skillsImg/keycloak.svg"}
             alt={""}

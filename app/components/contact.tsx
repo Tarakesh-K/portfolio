@@ -1,17 +1,16 @@
+"use client";
 import React, { useState, useRef, useEffect } from "react";
 import { ContactFormType, ProgressAnimationPropsType } from "../types/types";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { styles } from "./styles";
 import EarthCanvas from "./threeJsFiles/contact/earthCanvas";
-import { slideIn } from "../utils/motion";
 import TitleCard from "./title/titleCard";
-import StarsCanvas from "./threeJsFiles/contact/starsCanvas";
 
 function Contact(props: ProgressAnimationPropsType) {
   const [isVisible, setIsVisible] = useState(false);
   const mainRef = useRef<HTMLDivElement | null>(null);
-  const formRef = useRef();
+  // const formRef = useRef();
   const [form, setForm] = useState<ContactFormType>({
     name: "",
     email: "",
@@ -21,9 +20,55 @@ function Contact(props: ProgressAnimationPropsType) {
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {};
+  ) => {
+    const { name, value } = e.target;
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {};
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Validate that the environment variables are available
+    const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_PUB_KEY; // Corrected the variable name here
+    const toEmail = process.env.NEXT_PUBLIC_EMAIL;
+
+    if (!serviceId || !templateId || !publicKey || !toEmail) {
+      alert("Email service configuration is missing or invalid.");
+      console.error("Environment variables are not properly set.");
+      return;
+    }
+
+    setLoading(true);
+
+    emailjs
+      .send(
+        serviceId,
+        templateId,
+        {
+          from_name: form.name,
+          to_name: "Tarakesh K",
+          from_email: form.email,
+          to_email: toEmail,
+          message: form.message,
+        },
+        publicKey
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("Thank you. I will get back to you as soon as possible");
+          setForm({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          setLoading(false);
+          console.error("Email sending error:", error);
+          alert("Something went wrong while sending the email");
+        }
+      );
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,8 +88,8 @@ function Contact(props: ProgressAnimationPropsType) {
   }, []);
 
   return (
-    <div className="w-full">
-      <div className="max-w-[1440px] w-full mx-auto p-10 flex">
+    <div id="contact" className="w-full p-4 scroll-mt-[100px]">
+      <div className="max-w-[1440px] w-full mx-auto flex flex-col-reverse lg:flex-row">
         <motion.div
           ref={mainRef}
           initial={{ x: -50, opacity: 0 }}
@@ -116,7 +161,6 @@ function Contact(props: ProgressAnimationPropsType) {
           <EarthCanvas {...props} />
         </motion.div>
       </div>
-      <StarsCanvas />
     </div>
   );
 }

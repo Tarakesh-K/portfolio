@@ -31,7 +31,7 @@ export default function LandingPage(props: ProgressAnimationPropsType) {
   console.log(props.progress);
 
   return (
-    <div className="relative w-full min-h-[90vh] lg:min-h-screen">
+    <div id="home" className="relative w-full min-h-[90vh] lg:min-h-screen p-4">
       {/* Background image */}
       <Image
         src="/bg_images/waves-purple.svg"
@@ -40,20 +40,20 @@ export default function LandingPage(props: ProgressAnimationPropsType) {
         objectFit="cover"
         className="absolute top-0 left-0 z-0 opacity-[10%]"
       />
-      <div className="max-w-[1440px] w-full mx-auto p-10 flex flex-col">
+      <div className="max-w-[1440px] w-full mx-auto flex flex-col">
         {/* Centered Tarakesh K section */}
-        <div className="w-full mt-[60px] flex justify-center items-center text-white text-[6rem] leading-[1.5] font-robotmono font-semibold">
+        <div className="w-full lg:mt-[80px] flex justify-center items-center text-white font-robotmono font-semibold">
           {/* 3D components positioned around the text */}
-          <div className="absolute top-[10%] left-0">
+          <div className="invisible md:visible absolute top-[10%] left-0">
             <ThreeScene />
           </div>
-          <div className="absolute top-[10%] right-0">
+          <div className="invisible md:visible absolute top-[10%] right-0">
             <ThreeScene />
           </div>
-          <div className="absolute bottom-0 left-0">
+          <div className="invisible md:visible absolute bottom-0 left-0">
             <ThreeScene />
           </div>
-          <div className="absolute bottom-0 right-0">
+          <div className="invisible md:visible absolute bottom-0 right-0">
             <ThreeScene />
           </div>
           <div className="max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px] 2xl:max-w-[1440px] w-full mx-auto">
@@ -77,16 +77,16 @@ export default function LandingPage(props: ProgressAnimationPropsType) {
                 className="absolute left-[-20px] top-[10px] max-w-[5px] h-[300px] w-full bg-gradient-to-b from-[#A855F7] to-black"
               />
               <div>
-                <p>
+                <p className="text-[3.2rem] md:text-[4.8rem] lg:text-[6rem] leading-[1.5]">
                   Hi I&apos;m <span className="text-[#A855F7]">Tarakesh K</span>
                 </p>
-                <p className="max-w-[400px] w-full text-[1.6rem] leading-[1.33]">
+                <p className="max-w-[400px] w-full text-[1.2rem] lg:text-[1.6rem] leading-[1.33]">
                   I am a full stack developer with 2 years experience who can
                   develop 3D websites, user interfaces, and web applications.
                 </p>
               </div>
             </motion.div>
-            <div className="w-full h-[400px]">
+            <div className="w-full h-[300px] md:h-[400px]">
               <ComputerCanvas {...props} />
             </div>
           </div>

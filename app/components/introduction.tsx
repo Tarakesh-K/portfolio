@@ -40,12 +40,11 @@ export default function Introduction() {
   }, []);
 
   return (
-    <div className="max-w-[1440px] w-full mx-auto p-10" ref={introRef}>
+    <div className="max-w-[1440px] w-full mx-auto p-4 scroll-mt-[100px]" ref={introRef}>
       <div className="w-full flex flex-col gap-[1rem]">
         <div className="mb-4">
-          <TitleCard title="Overview" />
+          <TitleCard title="Introduction" />
         </div>
-
         <motion.div
           initial={{ x: -200, opacity: 0 }}
           animate={isVisible ? { x: 0, opacity: 1 } : {}}
@@ -55,7 +54,7 @@ export default function Introduction() {
           }}
           className="max-w-[800px] w-full"
         >
-          <p className="text-[1.8rem] leading-[1.5] text-white">
+          <p className="text-[1.2rem] md:text-[1.4rem] lg:text-[1.8rem] leading-[1.5] text-white">
             Detail-oriented full-stack developer with 1.8 years of experience in{" "}
             <b>React.js</b>, <b>Next.js</b>, <b>Node.js</b>, and{" "}
             <b>Express.js</b>, alongside proficiency in <b>MongoDB</b> and{" "}
@@ -75,7 +74,7 @@ export default function Introduction() {
           return (
             <div
               key={index}
-              className={`col-span-1 flex flex-grow flex-col ${colStart} transition-opacity duration-500 ease-in-out ${
+              className={`col-span-5 md:col-span-2 lg:col-span-1 flex flex-grow flex-col ${colStart} transition-opacity duration-500 ease-in-out ${
                 visibleItems.includes(index)
                   ? "opacity-100"
                   : isVisible
@@ -86,9 +85,9 @@ export default function Introduction() {
               <Image
                 src={arr.img}
                 alt={arr.description}
-                width={20}
-                height={20}
-                className={`w-full h-full ${arr.bgColor}`}
+                width={110} // Original width
+                height={110} // Original height
+                className={`max-w-[110px] max-w-[110px] w-full mx-auto h-auto ${arr.bgColor}`} // Responsive width
               />
               <p className="font-monospace font-semibold text-[1.6rem] leading-[1.33] text-white text-center">
                 {arr.description}

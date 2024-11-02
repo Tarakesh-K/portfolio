@@ -32,7 +32,7 @@ const ProjectCard = (props: ProjectCardPropsType) => {
 
 export default function Projects() {
   return (
-    <div className="max-w-[1440px] w-full mx-auto p-10">
+    <div className="max-w-[1440px] w-full mx-auto">
       <div className="max-w-[1110px] relative w-full mx-auto">
         <div className="mb-4">
           <TitleCard title="Projects" />

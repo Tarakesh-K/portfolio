@@ -24,8 +24,6 @@ const Computers = ({ isMobile }: { isMobile: number }) => {
         object={computer.scene}
         scale={
           isMobile <= 500
-            ? 0.4
-            : isMobile <= 768
             ? 0.6
             : isMobile <= 1024
             ? 0.8
