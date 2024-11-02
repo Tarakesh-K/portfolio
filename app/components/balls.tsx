@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import { image3dType } from "./array/array";
-import BallCanvas from "./threeJsFiles/landingPageComponents/ballCanvas";
+import BallCanvas from "./threeJsFiles/balls/ballCanvas";
 import { ProgressAnimationPropsType } from "../types/types";
 
 export default function Balls(props: ProgressAnimationPropsType) {

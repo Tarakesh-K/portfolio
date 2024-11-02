@@ -45,3 +45,32 @@ export type ProjectCardPropsType = {
   image: StaticImageData;
   source_code_link: string;
 };
+
+export type AnimationVariant = {
+  hidden: {
+    x?: number | string;
+    y?: number | string;
+    opacity?: number;
+    scale?: number;
+  };
+  show: {
+    x?: number | string;
+    y?: number | string;
+    opacity?: number;
+    scale?: number;
+    transition: {
+      type?: "spring" | "tween" | "ease"; // Made optional
+      duration?: number; // Made optional
+      delay?: number;
+      ease?: string;
+      staggerChildren?: number;
+      delayChildren?: number;
+    };
+  };
+};
+
+export type ContactFormType = {
+  name: string;
+  email: string;
+  message: string;
+};

@@ -7,6 +7,7 @@ import Balls from "./components/balls";
 import WorkExperience from "./components/workExperience";
 import Projects from "./components/projects";
 import { ProgressAnimationPropsType } from "./types/types";
+import Contact from "./components/contact";
 
 export default function Home() {
   const [landingPageProgress, setLandingPageProgress] = useState<number>(0);
@@ -40,6 +41,7 @@ export default function Home() {
       <div className="border-[1px] border-white mt-[40px]" />
       <WorkExperience />
       <Projects />
+      <Contact />
     </div>
   );
 }

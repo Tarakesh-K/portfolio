@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ThreeScene from "./threeJsFiles/threeScene";
-import ComputerCanvas from "./threeJsFiles/landingPageComponents/computerCanvas";
+import ComputerCanvas from "./threeJsFiles/landingPage/computerCanvas";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ProgressAnimationPropsType } from "../types/types";

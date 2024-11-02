@@ -34,7 +34,7 @@ export default function TitleCard(props: TitleCardProps) {
       }}
       className="w-full"
     >
-      <h3 className="text-[4.8rem] leading-[1.5] text-[#A855F7] font-robotmono font-bold">
+      <h3 className="text-[4.8rem] leading-[1.5] text-[#A855F7] font-robotmono font-extrabold">
         {props.title}
       </h3>
     </motion.div>

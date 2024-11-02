@@ -1,6 +1,6 @@
 import { ProgressAnimationPropsType, UrlType } from "@/app/types/types";
 import { Canvas } from "@react-three/fiber";
-import CanvasLoader from "./canvasLoader";
+import CanvasLoader from "../landingPage/canvasLoader";
 import { Suspense } from "react";
 import {
   Decal,
