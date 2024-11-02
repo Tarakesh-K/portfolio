@@ -35,11 +35,13 @@ const Ball = (props: UrlType) => {
   );
 };
 
-export default function BallCanvas(props: UrlType & ProgressAnimationPropsType) {
+export default function BallCanvas(
+  props: UrlType & ProgressAnimationPropsType
+) {
   return (
     <Canvas frameloop="demand" gl={{ preserveDrawingBuffer: true }}>
       <Suspense fallback={<CanvasLoader {...props} />}>
-        <OrbitControls enableZoom={false} />
+        <OrbitControls autoRotate autoRotateSpeed={5} enableZoom={false} />
         <Ball url={props.url} />
       </Suspense>
       <Preload all />

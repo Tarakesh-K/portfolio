@@ -12,6 +12,7 @@ import Contact from "./components/contact";
 export default function Home() {
   const [landingPageProgress, setLandingPageProgress] = useState<number>(0);
   const [ballProgress, setBallProgress] = useState<number>(0);
+  const [earthProgress, setEarthProgress] = useState<number>(0);
 
   const landingPageProgressProps: ProgressAnimationPropsType = {
     progress: landingPageProgress,
@@ -23,9 +24,10 @@ export default function Home() {
     setProgress: setBallProgress,
   };
 
-  console.log(
-    `landingPageProgress: ${landingPageProgress}, ballsProgress: ${ballProgress}`
-  );
+  const earthProgressProps: ProgressAnimationPropsType = {
+    progress: earthProgress,
+    setProgress: setEarthProgress,
+  };
 
   // Conditional rendering based on landingPageProgress
   return (
@@ -40,8 +42,8 @@ export default function Home() {
       <Balls {...ballsProgressProps} />
       <div className="border-[1px] border-white mt-[40px]" />
       <WorkExperience />
-      <Projects />
-      <Contact />
+      {/* <Projects /> */}
+      <Contact {...earthProgressProps} />
     </div>
   );
 }
