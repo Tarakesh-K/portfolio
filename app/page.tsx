@@ -31,10 +31,18 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const screenWidth = screen.width;
-    screenWidth > 1024
-      ? setShowNavBarComponent(true)
-      : setShowNavBarComponent(false);
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      setShowNavBarComponent(screenWidth > 1024);
+    };
+
+    // Initial check
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize); // Cleanup listener on unmount
+    };
   }, []);
 
   // Conditional rendering based on landingPageProgress
